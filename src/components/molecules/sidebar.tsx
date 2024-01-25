@@ -50,7 +50,7 @@ export const Sidebar = () => {
             <img src="/images/lightMode.svg" alt="lightMode" />
             <img src="/images/darkMode.svg" alt="darkMode" />
           </div>
-        </div>
+         </div>
 
         <div className="flex flex-col align-bottom gap-6">
           <img src="/images/dashArrow.svg" alt="dashArrow" />

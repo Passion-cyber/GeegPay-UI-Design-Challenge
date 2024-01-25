@@ -6,7 +6,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  AreaChart,
+  BarChart,
   Area,
 } from "recharts";
 
@@ -111,7 +111,7 @@ export default function ResponsiveChart() {
           </div>
         </div>
         <ResponsiveContainer width="98%" height="98%">
-          <AreaChart
+          <BarChart
             width={500}
             height={400}
             data={data}
@@ -171,7 +171,7 @@ export default function ResponsiveChart() {
               fill="url(#colorUv)"
               onMouseOver={() => (tooltip = "uv")}
             />
-          </AreaChart>
+          </BarChart>
         </ResponsiveContainer>
       </div>
     </>

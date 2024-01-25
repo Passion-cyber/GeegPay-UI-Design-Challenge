@@ -58,7 +58,7 @@ const StatsCard = ({
           <p className={`${textStatus}`}>{percentage}</p>
         </button>
 
-        <p className="font-inter text-sm text-[#606060]">{previousFigure}</p>
+        <p className="font-inter text-xs text-[#606060]">{previousFigure}</p>
       </div>
     </section>
   );
