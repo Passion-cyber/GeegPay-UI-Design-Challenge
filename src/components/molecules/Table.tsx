@@ -66,10 +66,12 @@ export const TableBody = ({
                         <img src={data?.user?.image} alt={data?.user?.name} />
                       )}
                     </div>
-                    <p className="line-clamp-1">{data?.user?.name}</p>
+                    <p className="line-clamp-1 font-semibold text-[#3A3F51]">
+                      {data?.user?.name}
+                    </p>
                   </div>
                 ) : /amount/gi.test(key) ? (
-                  <span className="max-w-full text-[rgba(13,6,45,1)]">
+                  <span className="max-w-full text-[#0D062D] font-semibold">
                     ${Number(data.amount).toLocaleString()}
                   </span>
                 ) : (

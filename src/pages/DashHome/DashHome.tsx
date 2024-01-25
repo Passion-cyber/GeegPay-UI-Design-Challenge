@@ -15,7 +15,7 @@ const DashHome = () => {
         </div>
       </section>
 
-      <div className="flex gap-4 w-full">
+      <div className="flex flex-col md:flex-row gap-4 w-full">
         <LastOrders />
         <TopPlatform />
       </div>
