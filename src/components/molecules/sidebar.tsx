@@ -19,7 +19,7 @@ const NavData = [
 
 export const Sidebar = () => {
   return (
-    <section className="py-8  bg-[rgba(247,248,250,1)]">
+    <section className="sticky left-0 py-8  bg-[rgba(247,248,250,1)]">
       <div className="flex flex-col justify-between items-center gap-y-24">
         <div className="flex flex-col items-center justify-center gap-6">
           <div className="px-5">

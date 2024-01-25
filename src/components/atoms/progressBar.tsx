@@ -3,7 +3,6 @@ interface IprogressBar {
   amount: string;
   percentage: string;
   bgColor: string;
-  widthPercentage: string;
 }
 
 const ProgressBar = ({
@@ -11,7 +10,6 @@ const ProgressBar = ({
   amount,
   percentage,
   bgColor,
-  widthPercentage,
 }: IprogressBar) => {
   return (
     <div className="relative flex items-start gap-3 mb-3 flex-col">
@@ -19,7 +17,8 @@ const ProgressBar = ({
 
       <div className="relative h-3 w-full bg-[#F5F5F5] rounded-full">
         <div
-          className={`h-full w-[${widthPercentage}] bg-[${bgColor}] rounded-full`}
+          style={{ backgroundColor: `${bgColor}, ` }}
+          className={`h-full  rounded-full`}
         ></div>
       </div>
 

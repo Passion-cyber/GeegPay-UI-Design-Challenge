@@ -1,204 +1,129 @@
-import { SimpleSelect } from "../atoms/index";
-import "./chart.style.css";
 import {
+  BarChart,
+  Bar,
+  ResponsiveContainer,
+  CartesianGrid,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  BarChart,
-  Area,
 } from "recharts";
 
 const data = [
   {
     name: "Jan",
-    uv: 100,
-    percentage: 100,
-    status: "failed",
+    uv: 700,
+    pv: 2400,
+    amt: 2400,
   },
   {
     name: "Feb",
-    uv: 3000,
-    percentage: 100,
-    status: "success",
+    uv: 900,
+    pv: 1398,
+    amt: 2210,
   },
   {
     name: "Mar",
     uv: 2000,
-    percentage: 100,
-    status: "fail",
+    pv: 9800,
+    amt: 2290,
   },
   {
     name: "Apr",
-    uv: 2780,
-    percentage: 100,
-    status: "success",
+    uv: 1780,
+    pv: 3908,
+    amt: 2000,
   },
   {
-    name: "May",
+    name: "Mei",
     uv: 1890,
-    percentage: 100,
-    status: "fail",
+    pv: 4800,
+    amt: 2181,
   },
   {
     name: "Jun",
     uv: 2390,
-    percentage: 100,
-    status: "success",
+    pv: 3800,
+    amt: 2500,
   },
   {
     name: "Jul",
     uv: 3490,
-    percentage: 100,
-    status: "fail",
+    pv: 4300,
+    amt: 2100,
   },
   {
     name: "Aug",
-    uv: 2000,
-    percentage: 100,
-    status: "success",
+    uv: 1290,
+    pv: 4300,
+    amt: 2100,
   },
   {
-    name: "Sept",
-    uv: 2780,
-    percentage: 100,
-    status: "fail",
+    name: "Sep",
+    uv: 990,
+    pv: 4300,
+    amt: 2100,
   },
   {
-    name: "Oct",
-    uv: 1890,
-    percentage: 100,
-    status: "success",
+    name: "Okt",
+    uv: 590,
+    pv: 4300,
+    amt: 2100,
   },
   {
     name: "Nov",
-    uv: 2390,
-    percentage: 100,
-    status: "fail",
+    uv: 1500,
+    pv: 4300,
+    amt: 2100,
   },
   {
-    name: "Dec",
-    uv: 3490,
-    percentage: 100,
-    status: "success",
+    name: "Des",
+    uv: 1990,
+    pv: 4300,
+    amt: 2100,
   },
 ];
-
-export default function ResponsiveChart() {
+const ResponsiveChart = () => {
   return (
-    <>
-      <div className="flex gap-6 flex-col w-full h-[400px] md:h-1/2">
-        <div
-          className="flex items-center justify-between"
-          style={{
-            height: "95px",
-            width: "100%",
-            padding: "8px 1rem",
-            marginBottom: ".5rem",
-            flexWrap: "wrap",
-            gap: ".5rem",
-            paddingBottom: ".5rem",
+    <ResponsiveContainer width="100%" height="100%">
+      <BarChart width={150} height={40} data={data}>
+        <defs>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <stop
+              offset="25%"
+              stopColor="rgb(14, 134, 96)"
+              stopOpacity={0.35}
+            />
+            <stop offset="75%" stopColor="rgb(0, 169, 145)" stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid
+          horizontal={true}
+          vertical={false}
+          strokeDasharray="3 3"
+        />
+        <XAxis
+          dataKey="name"
+          axisLine={false}
+          tickLine={false}
+          tickMargin={10}
+        />
+        <YAxis
+          axisLine={true}
+          tickLine={false}
+          tickMargin={20}
+          tickFormatter={function (value) {
+            if (value > 999999) {
+              return value / 10000 + "M";
+            } else if (value > 999) {
+              return value / 1000 + "K";
+            } else {
+              return value;
+            }
           }}
-        >
-          <h1 className="semiBoldText text-[#C8C8C8B0] font-medium text-lg">
-            Transaction Volume
-          </h1>
-          <div className="gap-1 flexRow">
-            <span>
-              <SimpleSelect />
-            </span>
-          </div>
-        </div>
-        <ResponsiveContainer width="98%" height="98%">
-          <BarChart
-            width={500}
-            height={400}
-            data={data}
-            margin={{
-              top: 10,
-              right: 0,
-              left: 10,
-              bottom: 20,
-            }}
-          >
-            <defs>
-              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="25%"
-                  stopColor="rgb(14, 134, 96)"
-                  stopOpacity={0.35}
-                />
-                <stop
-                  offset="75%"
-                  stopColor="rgb(0, 169, 145)"
-                  stopOpacity={0}
-                />
-              </linearGradient>
-            </defs>
-            <CartesianGrid
-              horizontal={true}
-              vertical={false}
-              strokeDasharray="3 3"
-            />
-            <XAxis
-              dataKey="name"
-              axisLine={false}
-              tickLine={false}
-              tickMargin={10}
-            />
-            <YAxis
-              axisLine={true}
-              tickLine={false}
-              tickMargin={20}
-              tickFormatter={function (value) {
-                if (value > 999999) {
-                  return value / 1000000 + "M";
-                } else if (value > 999) {
-                  return value / 1000 + "K";
-                } else {
-                  return value;
-                }
-              }}
-            />
-            <Tooltip content={<CustomTooltip />} />
-            <Area
-              type="monotone"
-              dataKey="uv"
-              stroke="#00a991"
-              strokeWidth={"2px"}
-              fillOpacity={1}
-              fill="url(#colorUv)"
-              onMouseOver={() => (tooltip = "uv")}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-    </>
+        />
+        <Bar dataKey="uv" fill="#34CAA51A" />
+      </BarChart>
+    </ResponsiveContainer>
   );
-}
-
-var tooltip: any;
-const CustomTooltip = ({
-  active,
-  payload,
-}: {
-  active?: any;
-  payload?: any;
-}) => {
-  if (!active || !tooltip) return null;
-  for (const bar of payload) {
-    if (bar.dataKey === tooltip) {
-      // console.log(payload);
-      return (
-        <div className="flex flex-col gap-2 bg-primary p-3 rounded text-secondary font-medium text-sm">
-          <div className="flex">
-            <h2>{payload[0].payload.name}</h2>
-          </div>
-          <small>Transaction volume {bar.value.toFixed(2)} </small>
-        </div>
-      );
-    }
-  }
-  return null;
 };
+
+export default ResponsiveChart;
