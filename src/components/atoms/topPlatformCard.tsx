@@ -1,14 +1,14 @@
-import ProgressBar from "../molecules/progressBar";
+import {ProgressBar} from "../molecules/progressBar";
 
 
 
-const TopPlatformCard = () => {
+const TopPlatformCard = ({}) => {
   return (
     <div>
-      <ProgressBar
+      {/* <ProgressBar
         progressPercentage={percentage}
         progressBehavior={progressBarBehaviour}
-      />
+      /> */}
     </div>
   );
 };

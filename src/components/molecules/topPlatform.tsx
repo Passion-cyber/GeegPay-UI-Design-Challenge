@@ -1,7 +1,7 @@
 import { TopPlatformCard } from "../atoms";
 import { topPlatformData } from "../../utils/data";
 
-const TopPlatform = () => {
+export const TopPlatform = () => {
   return (
     <section className="flex flex-col item-center rounded-2xl ">
       <div className="flex items-center justify-between gap-6">
@@ -19,5 +19,3 @@ const TopPlatform = () => {
     </section>
   );
 };
-
-export default TopPlatform;

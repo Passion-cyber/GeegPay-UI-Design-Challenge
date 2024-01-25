@@ -21,6 +21,15 @@ export default {
         plus: ["Plus Jakarta Sans, sans-serif"],
         inter: ["Inter', sans-serif"],
       },
+      keyframes: {
+        swing: {
+          "0%,100%": { transform: "rotate(15deg)" },
+          "50%": { transform: "rotate(-15deg)" },
+        },
+      },
+      animation: {
+        swing: "swing 0.8s",
+      },
     },
   },
   plugins: [],

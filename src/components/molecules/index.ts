@@ -1,4 +1,5 @@
-import Sidebar from "./sidebar";
-import Navbar from "./navbar";
-import TopPlatform from "./topPlatform";
-export { Navbar, Sidebar, TopPlatform };
+export * from "./sidebar";
+export * from "./navbar";
+export * from "./topPlatform"
+export * from "./Table"
+export * from "./LastOrders"

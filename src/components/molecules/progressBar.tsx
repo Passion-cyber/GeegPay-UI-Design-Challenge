@@ -5,7 +5,7 @@ export interface IprogressBarprops {
   progressPercentage: string;
 }
 
-const progressStyles = {
+export const progressStyles = {
   excellent: {
     wBackground: "#F5F5F5",
     pBackground: "#6160DC",
@@ -24,7 +24,7 @@ const progressStyles = {
   },
 };
 
-const ProgressBar = ({
+export const ProgressBar = ({
   progressBehavior,
   progressPercentage,
 }: IprogressBarprops) => {
@@ -60,4 +60,3 @@ const ProgressBar = ({
   );
 };
 
-export default ProgressBar;
