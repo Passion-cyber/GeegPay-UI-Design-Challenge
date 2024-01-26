@@ -101,7 +101,7 @@ const ResponsiveChart = () => {
               cursor={{ stroke: "none" }}
               contentStyle={{ background: "#000000", border: "none" }}
               label={{ fill: "#fffffff" }}
-              itemStyle={{ color: "#ffffff" }} // Set the text color of the payload
+              itemStyle={{ color: "#ffffff" }} 
             />
             <Bar
               dataKey="total"

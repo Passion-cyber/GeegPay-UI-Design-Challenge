@@ -16,28 +16,28 @@ export const TopPlatform = () => {
           headerText={`Book Bazaar`}
           amount={`$2,500,000`}
           percentage={`+15%`}
-          // widthPercentage={"50%"}
+          widthPercentage={"50%"}
           bgColor={"#6160DC"}
         />
         <ProgressBar
           headerText={`Artisan Aisle`}
           amount={`$1,800,000`}
           percentage={`+10%`}
-          // widthPercentage={"40%"}
+          widthPercentage={"40%"}
           bgColor={"#54C5EB"}
         />
         <ProgressBar
           headerText={`Toy Troop`}
           amount={`$1,200,000`}
           percentage={`+8%`}
-          // widthPercentage={"30%"}
+          widthPercentage={"30%"}
           bgColor={"#FFB74A"}
         />
         <ProgressBar
           headerText={`XStore`}
           amount={`$1,000,000`}
           percentage={`+5%`}
-          // widthPercentage={"20%"}
+          widthPercentage={"20%"}
           bgColor={"#FF4A55"}
         />
       </div>
