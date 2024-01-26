@@ -5,7 +5,7 @@ import { useState } from "react";
 export const Navbar = () => {
   const [search, setSearch] = useState("");
   return (
-    <div className="sticky bg-white top-0 w-full border-b p-4 px-5 min-h-[89px]">
+    <div className="sticky bg-white top-0 w-full border-b p-4 px-5 min-h-[89px] z-[999]">
       <div className="flex items-center justify-between">
         <h2 className="font-jakarta font-semibold text-xl text-primary">
           Dashboard

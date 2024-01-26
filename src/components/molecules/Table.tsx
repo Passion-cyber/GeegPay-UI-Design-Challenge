@@ -21,12 +21,12 @@ export const Table = ({
         className
       )}
     >
-      <table className="pb-[MIN(100px,5%)] w-full max-w-full whitespace-nowrap max-h-full">
+      <table className="pb-[MIN(100px,5%)] w-full max-w-full whitespace-nowrap max-h-full ">
         <thead className="sticky overflow-auto left-0 top-0 min-w-full bg-inherit">
           <tr className="w-full">
             {tableHeads?.map((head, index) => (
               <th
-                className={`text-[rgba(156,164,171,1)] font-normal min-h-[16px] mt-6 m-auto h-full items-center max-w-fit mx-4 overflow-hidden text-start text-xs px-6 py-4`}
+                className={`text-[rgba(156,164,171,1)] min-h-[16px] mt-6 m-auto h-full items-center max-w-fit mx-4 overflow-hidden text-start textxs md:text-base font-medium px-6 py-4`}
                 key={`${head}-${index}`}
               >
                 <>{head}</>
@@ -55,7 +55,7 @@ export const TableBody = ({
             return (
               <td
                 key={`table-data-${index}`}
-                className="p-4 px-6 text-[rgba(115,115,115,1)] text-start whitespace-nowrap overflow-hidden overflow-ellipsis text-xs text-[#25282B]"
+                className="p-4 px-6 text-[rgba(115,115,115,1)] text-start whitespace-nowrap overflow-hidden overflow-ellipsis text-xs md:text-lg text-[#25282B]"
               >
                 {/status/gi.test(key) ? (
                   <StatusData data={data[key]} />
@@ -63,7 +63,7 @@ export const TableBody = ({
                   <div className="max-w-full flex items-center gap-2">
                     <div className="min-w-[32px] h-[32px] aspect-square overflow-hidden rounded-full flex items-center justify-center bg-[rgba(52,202,165,1)]">
                       {data?.user?.image && (
-                        <img src={data?.user?.image} alt={data?.user?.name} />
+                        <img src={data?.user?.image} alt={data?.user?.name} className="h-full w-full" />
                       )}
                     </div>
                     <p className="line-clamp-1 font-semibold text-[#3A3F51]">
@@ -84,7 +84,7 @@ export const TableBody = ({
           <td className="min-h-[16px] mt-6 m-auto h-full flex items-center">
             <Link
               to={`/#`}
-              className="text-xs hover:underline flex items-center gap-x-2 text-brand-blue px-6"
+              className="text-xs md:text-sm hover:underline flex items-center gap-x-2 text-brand-blue px-6"
             >
               <DocumentDownload size={14} /> View
             </Link>

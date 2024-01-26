@@ -4,8 +4,8 @@ import { ProgressBar } from "../../components/atoms/index";
 export const TopPlatform = () => {
   return (
     <section className="w-full flex flex-col gap-6 bg-[#fff] shadow px-5 py-[18px] rounded-[14px]">
-      <div className="flex justify-between items-center font-medium text-lg">
-        <h2>Top Platform</h2>
+      <div className="flex justify-between items-center font-semibold text-lg">
+        <h2 className="text-[#26282C]">Top Platform</h2>
         <Link to="/#" className="text-[#34CAA5] ">
           See All
         </Link>
