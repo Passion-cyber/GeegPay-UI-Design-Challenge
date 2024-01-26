@@ -5,9 +5,9 @@ import { statsCardData } from "../../utils/data";
 
 const DashHome = () => {
   return (
-    <main className="w-full h-screen  pt-[30px] mx-auto px-6 gap-6 flex flex-col">
+    <main className="w-full h-screen pt-[30px] mx-auto px-6 gap-6 flex flex-col">
       <section className="w-full flex flex-col md:flex-row items-center gap-8">
-        <div className="mt-6 h-[490px] w-full border border-red-500">
+        <div className="h-[490px] w-full">
           <ResponsiveChart />
         </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[MIN(100%,calc(2*249px))]">

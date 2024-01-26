@@ -7,6 +7,7 @@ import {
   TrendUp,
 } from "iconsax-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const NavData = [
   { name: "Home", path: "/", icon: <Element3 variant="Bulk" /> },
@@ -18,8 +19,14 @@ const NavData = [
 ];
 
 export const Sidebar = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const toggleActiveItem = (index: number) => {
+    setActiveIndex(index);
+  };
+
   return (
-    <section className="sticky left-0 py-8  bg-[rgba(247,248,250,1)]">
+    <section className="md:sticky left-0 py-8  bg-[rgba(247,248,250,1)] z-50 absolute bottom-0">
       <div className="flex flex-col justify-between items-center gap-y-24">
         <div className="flex flex-col items-center justify-center gap-6">
           <div className="px-5">
@@ -33,10 +40,11 @@ export const Sidebar = () => {
                 className="w-full flex group py-2 first:text-black hover:text-black "
               >
                 <Link
+                  onClick={() => toggleActiveItem(index)}
                   to={"/"}
-                  className={`flex justify-center min-w-full px-5 relative after:top-0 after:left-0  after:min-h-full after:w-[3px] transition-colors duration-300  ${
-                    index === 0
-                      ? "border-r-[3px] first:border-r-[rgba(13,6,45,1)]"
+                  className={`flex justify-center min-w-full px-5 relative after:top-0 after:left-0  after:min-h-full after:w-[3px] after:rounded-l-full transition-colors duration-300  ${
+                    activeIndex == index
+                      ? "border-r-[3px] first:border-r-[rgba(13,6,45,1)] text-[rgba(13,6,45,1)]"
                       : ""
                   }`}
                 >
@@ -50,7 +58,7 @@ export const Sidebar = () => {
             <img src="/images/lightMode.svg" alt="lightMode" />
             <img src="/images/darkMode.svg" alt="darkMode" />
           </div>
-         </div>
+        </div>
 
         <div className="flex flex-col align-bottom gap-6">
           <img src="/images/dashArrow.svg" alt="dashArrow" />

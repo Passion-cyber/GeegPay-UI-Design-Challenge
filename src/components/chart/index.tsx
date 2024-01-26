@@ -1,128 +1,118 @@
 import {
-  BarChart,
   Bar,
-  ResponsiveContainer,
+  BarChart,
   CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
 
+import { ArrowDown2 } from "iconsax-react";
+
 const data = [
   {
     name: "Jan",
-    uv: 700,
-    pv: 2400,
-    amt: 2400,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Feb",
-    uv: 900,
-    pv: 1398,
-    amt: 2210,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Mar",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Apr",
-    uv: 1780,
-    pv: 3908,
-    amt: 2000,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
-    name: "Mei",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "May",
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Jun",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Jul",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Aug",
-    uv: 1290,
-    pv: 4300,
-    amt: 2100,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Sep",
-    uv: 990,
-    pv: 4300,
-    amt: 2100,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
-    name: "Okt",
-    uv: 590,
-    pv: 4300,
-    amt: 2100,
+    name: "Oct",
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
     name: "Nov",
-    uv: 1500,
-    pv: 4300,
-    amt: 2100,
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
-    name: "Des",
-    uv: 1990,
-    pv: 4300,
-    amt: 2100,
+    name: "Dec",
+    total: Math.floor(Math.random() * 50000) + 10000,
   },
 ];
+
 const ResponsiveChart = () => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <BarChart width={150} height={40} data={data}>
-        <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop
-              offset="25%"
-              stopColor="rgb(14, 134, 96)"
-              stopOpacity={0.35}
+    <>
+      <section className="flex flex-col gap-6 w-full h-[400px] md">
+        <div className="flex items-center w-full justify-between">
+          <h2 className="text-[#26282C] text-lg font-semibold">Sales Trend</h2>
+
+          <div className="flex items-center gap-3">
+            <p className="text-[#3A3F51] text-sm font-semibold">Sort by:</p>
+            <button className="flex items-center gap-3 border border-border rounded-full py-1 px-2 text-[#3A3F51] text-xs">
+              Weekly <ArrowDown2 className="h-6 w-5" />
+            </button>
+          </div>
+        </div>
+
+        <ResponsiveContainer
+          width="100%"
+          height={350}
+          className="text-foreground"
+        >
+          <BarChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+              dataKey="name"
+              stroke="#888888"
+              fontSize={12}
+              tickLine={false}
+              axisLine={false}
             />
-            <stop offset="75%" stopColor="rgb(0, 169, 145)" stopOpacity={0} />
-          </linearGradient>
-        </defs>
-        <CartesianGrid
-          horizontal={true}
-          vertical={false}
-          strokeDasharray="3 3"
-        />
-        <XAxis
-          dataKey="name"
-          axisLine={false}
-          tickLine={false}
-          tickMargin={10}
-        />
-        <YAxis
-          axisLine={true}
-          tickLine={false}
-          tickMargin={20}
-          tickFormatter={function (value) {
-            if (value > 999999) {
-              return value / 10000 + "M";
-            } else if (value > 999) {
-              return value / 1000 + "K";
-            } else {
-              return value;
-            }
-          }}
-        />
-        <Bar dataKey="uv" fill="#34CAA51A" />
-      </BarChart>
-    </ResponsiveContainer>
+            <YAxis
+              stroke="#888888"
+              fontSize={12}
+              tickLine={false}
+              axisLine={false}
+              tickFormatter={(value) => `$${value}`}
+            />
+            <Tooltip
+              cursor={{ stroke: "none" }}
+              contentStyle={{ background: "#000000", border: "none" }}
+              label={{ fill: "#fffffff" }}
+              itemStyle={{ color: "#ffffff" }} // Set the text color of the payload
+            />
+            <Bar
+              dataKey="total"
+              fill="#34CAA5"
+              radius={[40, 40, 0, 0]}
+              barSize={30}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </section>
+    </>
   );
 };
 

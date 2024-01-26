@@ -8,7 +8,7 @@ const DashboardLayout = (): JSX.Element => {
       <Sidebar />
       <section className={`flex-1 relative min-h-full `}>
         <Navbar />
-        <section className="h-full  max-h-[calc(100vh-100px)] overflow-hidden overflow-y-auto ">
+        <section className="h-full  max-h-[calc(100vh)] overflow-hidden overflow-y-auto ">
           <DashboardRoutes />
         </section>
       </section>
