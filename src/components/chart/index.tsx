@@ -28,7 +28,7 @@ const data = [
     total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
-    name: "May",
+    name: "Mei",
     total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
@@ -48,7 +48,7 @@ const data = [
     total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
-    name: "Oct",
+    name: "Okt",
     total: Math.floor(Math.random() * 50000) + 10000,
   },
   {
